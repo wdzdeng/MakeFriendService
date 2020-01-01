@@ -1,0 +1,30 @@
+
+spring:
+  application:
+    name: weixin-act-couplet
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/makefriend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  aop:
+    auto: true
+    proxy-target-class: true
+server:
+  port: 8888
+  tomcat:
+    max-threads: 400
+    accept-count: 200
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      field-strategy: not_null
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    jdbc-type-for-null: NULL
+    logging-impl: org.apache.ibatis.logging.stdout.StdOutImpl
