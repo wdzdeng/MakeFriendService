@@ -1,12 +1,12 @@
 
 spring:
   application:
-    name: weixin-act-couplet
+    name: makefreind-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/makefriend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/friend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: wdz1994526
   aop:
     auto: true
     proxy-target-class: true

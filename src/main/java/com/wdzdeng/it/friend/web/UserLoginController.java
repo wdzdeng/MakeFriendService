@@ -1,6 +1,5 @@
 package com.wdzdeng.it.friend.web;
 
-
 import com.wdzdeng.it.friend.common.DealResult;
 import com.wdzdeng.it.friend.common.R;
 import com.wdzdeng.it.friend.entity.BaseUser;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 
 /**
  * @Author: wdz
@@ -42,7 +40,7 @@ public class UserLoginController {
         return R.ok(dealResult);
     }
 
-    @GetMapping(value = "/login")
+    @PostMapping(value = "/login")
     public R<BaseUserVO> login(@Validated @RequestBody BaseUser baseUser, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return R.failed(bindingResult.getFieldError().getDefaultMessage());
