@@ -41,7 +41,6 @@ public class MatchServiceImpl implements IMatchService {
             }
             String otherResult = result.getResult();
             for (int i = 0; i < otherResult.length(); ++i){
-                stringBuffer.append(i+1);
                 stringBuffer.append(currentAnswer.charAt(i));
                 stringBuffer.append(otherResult.charAt(i));
                 if (currentAnswer.charAt(i) == otherResult.charAt(i)){
