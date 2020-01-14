@@ -31,6 +31,9 @@ public class UserInfoController {
             return R.failed("用户id不合法");
         }
         UserInfo userInfo = userInfoService.getById(userId);
+        if(null == userInfo){
+           return R.failed("个人信息尚未完善");
+        }
         return R.ok(convertToUserInfoVO(userInfo));
 
     }

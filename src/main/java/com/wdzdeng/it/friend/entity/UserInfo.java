@@ -41,6 +41,9 @@ public class UserInfo extends BaseEntity<UserInfo> implements Serializable {
     @NotNull(message = "性别不能为空")
     private Short gender;
 
+    @TableField(value = "HEAD_URL")
+    private String headUrl;
+
     @TableField(value = "PROVINCE")
     private String province;
 

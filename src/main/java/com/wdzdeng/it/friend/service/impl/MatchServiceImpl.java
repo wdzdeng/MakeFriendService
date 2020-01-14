@@ -50,6 +50,7 @@ public class MatchServiceImpl implements IMatchService {
 
             }
             RankVO rankVo = new RankVO()
+                    .setHeadUrl(userInfo.getHeadUrl())
                     .setUserId(userInfo.getUserId())
                     .setGender(userInfo.getGender())
                     .setMatch(match)

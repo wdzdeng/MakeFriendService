@@ -17,6 +17,7 @@ public class RankVO implements Comparable<RankVO>,Serializable {
     private Integer userId;
     private String name;
     private Short gender;
+    private String headUrl;
     private String answerCompare;
     private Integer match;
 
