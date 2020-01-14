@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/answer", produces = "application/json;charset=UTF-8")
 public class AnswerController {
-    private static final Integer ANSWER_LENGTH = 5;
     @Autowired
     IUserResultService resultService;
     @Autowired
@@ -31,7 +30,7 @@ public class AnswerController {
         if(null == userId ){
             return R.failed("userId 不合法");
         }
-        if(StringUtils.isBlank(answer) || answer.length() != ANSWER_LENGTH){
+        if(StringUtils.isBlank(answer)){
             return R.failed("answer 不合法");
         }
         try {

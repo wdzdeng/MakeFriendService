@@ -7,6 +7,7 @@ package com.wdzdeng.it.friend.common;
  */
 public interface SystemConstant {
     Integer PAGE_SIZE = 20;
+    Integer ANSWER_LENGTH = 5;
     String APP_ID = "wxbc7ad26fc22e64d8";
     String SECRET = "abd2a7ed9c5dd160a434efa8c6124288";
 }

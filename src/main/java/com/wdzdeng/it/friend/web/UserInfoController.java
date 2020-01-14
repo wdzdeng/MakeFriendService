@@ -26,8 +26,8 @@ public class UserInfoController {
     private IUserInfoService userInfoService;
 
     @GetMapping(value = "/query")
-    public R<UserInfoVO> getUserInfo(@RequestParam("userId") String userId){
-        if (StringUtils.isBlank(userId)){
+    public R<UserInfoVO> getUserInfo(@RequestParam("userId") Integer userId){
+        if (null == userId){
             return R.failed("用户id不合法");
         }
         UserInfo userInfo = userInfoService.getById(userId);
@@ -35,8 +35,25 @@ public class UserInfoController {
            return R.failed("个人信息尚未完善");
         }
         return R.ok(convertToUserInfoVO(userInfo));
-
     }
+
+    @GetMapping(value = "/query/other")
+    public R<UserInfoVO> getOtherUserInfo(@RequestParam("otherUserId") Integer otherUserId,
+                                          @RequestParam("match") Integer match){
+        if ( null == otherUserId || null == match){
+            return R.failed("请求参数不合法");
+        }
+        UserInfo otherUserInfo = userInfoService.getById(otherUserId);
+        if (null == otherUserInfo){
+            return R.failed("对方用户不存在");
+        }
+        if (otherUserInfo.getExpectMatch() > match){
+            return R.failed("低于对方期望匹配度，无权查看");
+        }
+        return R.ok(convertToUserInfoVO(otherUserInfo));
+    }
+
+
     @PostMapping(value = "/save")
     public R<Boolean> saveUserInfo(@Validated @RequestBody UserInfo userInfo, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
